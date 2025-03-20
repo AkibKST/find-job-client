@@ -1,10 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const JobApply = () => {
   const { id } = useParams();
   //   const navigate = useNavigate();
-  // console.log(id, user);
+  const { user } = useAuth();
+  console.log(id, user);
 
   const submitJobApplication = (e) => {
     e.preventDefault();
@@ -15,13 +17,13 @@ const JobApply = () => {
 
     console.log(linkedIn, github, resume);
 
-    // const jobApplication = {
-    //   job_id: id,
-    //   applicant_email: user.email,
-    //   linkedIn,
-    //   github,
-    //   resume,
-    // };
+    const jobApplication = {
+      job_id: id,
+      applicant_email: user.email,
+      linkedIn,
+      github,
+      resume,
+    };
 
     // fetch("http://localhost:5000/job-applications", {
     //   method: "POST",
@@ -50,7 +52,10 @@ const JobApply = () => {
       <h1 className="text-5xl font-bold text-center">
         Apply Job and Good Luck!
       </h1>
-      <form onSubmit={submitJobApplication} className="card-body">
+      <form
+        onSubmit={submitJobApplication}
+        className="card-body w-full space-y-2"
+      >
         <div className="form-control">
           <label className="label">
             <span className="label-text">LinkedIn URL</span>
@@ -59,7 +64,7 @@ const JobApply = () => {
             type="url"
             name="linkedIn"
             placeholder="LinkedIn URL"
-            className="input input-bordered"
+            className="input input-bordered w-full"
             required
           />
         </div>
@@ -71,7 +76,7 @@ const JobApply = () => {
             type="url"
             name="github"
             placeholder="Github URL"
-            className="input input-bordered"
+            className="input input-bordered w-full"
             required
           />
         </div>
@@ -83,11 +88,11 @@ const JobApply = () => {
             type="url"
             name="resume"
             placeholder="Resume URL"
-            className="input input-bordered"
+            className="input input-bordered w-full"
             required
           />
         </div>
-        <div className="form-control mt-6">
+        <div className="form-control mt-6 text-center">
           <button className="btn btn-primary">Apply</button>
         </div>
       </form>
