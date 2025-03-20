@@ -5,12 +5,12 @@ import Register from "../pages/register/Register";
 import SignIn from "../pages/signin/signin";
 import JobDetails from "../pages/JobDetails/JobDetails";
 import PrivateRoute from "./PrivateRoute";
+import JobApply from "../pages/JobApply/JobApply";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    errorElement: <div>404 Not Found</div>,
     errorElement: <div>404 Not Found</div>,
     children: [
       {
@@ -26,6 +26,14 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/api/job/getSingleJob/${params.id}`),
+      },
+      {
+        path: "/jobApply/:id",
+        element: (
+          <PrivateRoute>
+            <JobApply></JobApply>
+          </PrivateRoute>
+        ),
       },
       {
         path: "register",
