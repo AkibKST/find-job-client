@@ -6,14 +6,14 @@ const Footer = () => {
     <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
       <aside>
         <img src={jobLogo} alt="" />
-        <p>
+        <div>
           <h3 className="text-2xl">
             <span className="text-[#0563f9] font-bold">find</span>-
             <span className="text-[#f96f05] font-bold">job</span> Ltd.
           </h3>
           <br />
           Providing reliable job since 1992
-        </p>
+        </div>
       </aside>
       <nav>
         <h6 className="footer-title">Services</h6>
