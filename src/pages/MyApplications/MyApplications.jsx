@@ -49,14 +49,16 @@ const MyApplications = () => {
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
                         <img
-                          src={job.company_logo}
+                          src={job.job_id.company_logo}
                           alt="Avatar Tailwind CSS Component"
                         />
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">{job.title}</div>
-                      <div className="text-sm opacity-50">{job.location}</div>
+                      <div className="font-bold">{job.job_id.title}</div>
+                      <div className="text-sm opacity-50">
+                        {job.job_id.location}
+                      </div>
                     </div>
                   </div>
                 </td>
