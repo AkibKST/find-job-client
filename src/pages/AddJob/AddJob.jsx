@@ -1,24 +1,33 @@
 import React from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const AddJob = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleAddJob = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     // console.log(formData.entries())
+
+    //collect data from formData in a object
     const initialData = Object.fromEntries(formData.entries());
     // console.log(initialData)
+
+    // initial data theke kichu data vag kore nilam bakigula newjob e rakhlam
     const { min, max, currency, ...newJob } = initialData;
     console.log(min, max, currency, newJob);
+
+    //newJob e ekta object add korlam
     newJob.salaryRange = { min, max, currency };
     newJob.requirements = newJob.requirements.split("\n");
     newJob.responsibilities = newJob.responsibilities.split("\n");
+    newJob.status = "active";
     console.log(newJob);
 
-    fetch("http://localhost:5000/job/createJob", {
+    fetch("http://localhost:5000/api/job/createJob", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -27,7 +36,7 @@ const AddJob = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
+        if (data.success) {
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -37,7 +46,8 @@ const AddJob = () => {
           });
           navigate("/myPostedJobs");
         }
-      });
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -77,6 +87,7 @@ const AddJob = () => {
           </label>
           <select
             defaultValue="Pick a Job type"
+            name="jobType"
             className="select select-ghost w-full max-w-xs"
           >
             <option disabled>Pick a Job type</option>
@@ -92,6 +103,7 @@ const AddJob = () => {
           </label>
           <select
             defaultValue="Pick a Job Field"
+            name="category"
             className="select select-ghost w-full max-w-xs"
           >
             <option disabled>Pick a Job Field</option>
