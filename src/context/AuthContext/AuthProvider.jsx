@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import auth from "../../firebase/firebase.init";
+import axios from "axios";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -43,7 +44,37 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log("state captured", currentUser);
-      setLoading(false);
+      if (currentUser?.email) {
+        // when user sign in
+        // get token from server and set it to cookie
+        axios
+          .post(
+            "http://localhost:5000/api/auth/jwt-access-token",
+            currentUser.email,
+            {
+              withCredentials: true,
+            }
+          )
+          .then((res) => {
+            console.log("login time", res.data);
+            setLoading(false);
+          });
+      } else {
+        // when user sign out
+        // remove token from cookie
+        axios
+          .post(
+            "http://localhost:5000/api/auth/jwt-clear-token",
+            {},
+            {
+              withCredentials: true,
+            }
+          )
+          .then((res) => {
+            console.log("logout time", res.data);
+            setLoading(false);
+          });
+      }
     });
 
     return () => {

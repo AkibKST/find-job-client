@@ -23,11 +23,11 @@ const SignIn = () => {
       .then((result) => {
         console.log("sign in", result.user.email);
         const user = { email: result.user.email };
-        axios
-          .post("http://localhost:5000/api/auth/jwt-access-token", user, {
-            withCredentials: true,
-          })
-          .then((res) => console.log(res.data));
+        // axios
+        //   .post("http://localhost:5000/api/auth/jwt-access-token", user, {
+        //     withCredentials: true,
+        //   })
+        //   .then((res) => console.log(res.data));
         navigate(from);
       })
       .catch((error) => {
