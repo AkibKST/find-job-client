@@ -24,7 +24,7 @@ const SignIn = () => {
         console.log("sign in", result.user.email);
         const user = { email: result.user.email };
         // axios
-        //   .post("http://localhost:5000/api/auth/jwt-access-token", user, {
+        //   .post("https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/auth/jwt-access-token", user, {
         //     withCredentials: true,
         //   })
         //   .then((res) => console.log(res.data));

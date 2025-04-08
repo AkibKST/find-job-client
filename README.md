@@ -3,7 +3,13 @@
 CAREER-CODE: A JOB PORTAL SYSTEM
 A comprehensive job portal platform designed to enable seamless interaction between job seekers and employers. The system provides full CRUD operations for managing job postings, user authentication, and streamlined job application processes.
 
-# Deploy Link: https://find-job-ffde3.web.app
+# Deploy Link:
+
+### Frontend: https://find-job-ffde3.web.app
+
+# Default: https://find-job-ffde3.firebaseapp.com
+
+### Backend: https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app
 
 🌟 Project Purpose
 The purpose of this project is to assess skills, creativity, and problem-solving abilities while providing an efficient recruitment and job application experience.

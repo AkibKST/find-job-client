@@ -7,7 +7,9 @@ const MyPostedJobs = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/job/getAllJobs?email=${user.email}`)
+    fetch(
+      `https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/job/getAllJobs?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setJobs(data.data));
   }, [user.email]);

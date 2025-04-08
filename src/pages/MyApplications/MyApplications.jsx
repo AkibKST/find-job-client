@@ -9,14 +9,14 @@ const MyApplications = () => {
 
   useEffect(() => {
     // fetch(
-    //   `http://localhost:5000/api/jobApplication/UserJobApplication?email=${user.email}`
+    //   `https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/jobApplication/UserJobApplication?email=${user.email}`
     // )
     //   .then((res) => res.json())
     //   .then((data) => setJobs(data.data));
 
     // axios
     //   .get(
-    //     `http://localhost:5000/api/jobApplication/UserJobApplication?email=${user.email}`,
+    //     `https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/jobApplication/UserJobApplication?email=${user.email}`,
     //     { withCredentials: true }
     //   )
     //   .then((res) => setJobs(res.data.data));

@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL:
+    "https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api",
   withCredentials: true,
 });
 

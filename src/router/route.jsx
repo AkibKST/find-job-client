@@ -29,7 +29,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/api/job/getSingleJob/${params.id}`),
+          fetch(
+            `https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/job/getSingleJob/${params.id}`
+          ),
       },
       {
         path: "jobApply/:id",
@@ -72,7 +74,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/api/jobApplication/jobs/${params.job_id}`
+            `https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/jobApplication/jobs/${params.job_id}`
           ),
       },
       {

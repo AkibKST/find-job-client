@@ -10,13 +10,16 @@ const ViewApplications = () => {
     const data = {
       status: e.target.value,
     };
-    fetch(`http://localhost:5000/api/jobApplication/app/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/jobApplication/app/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

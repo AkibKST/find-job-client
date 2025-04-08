@@ -26,13 +26,16 @@ const JobApply = () => {
       resume,
     };
 
-    fetch("http://localhost:5000/api/jobApplication/createJobApplication", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(jobApplication),
-    })
+    fetch(
+      "https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/jobApplication/createJobApplication",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(jobApplication),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

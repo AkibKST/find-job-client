@@ -27,13 +27,16 @@ const AddJob = () => {
     newJob.status = "active";
     console.log(newJob);
 
-    fetch("http://localhost:5000/api/job/createJob", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newJob),
-    })
+    fetch(
+      "https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/job/createJob",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newJob),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

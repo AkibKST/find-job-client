@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
 
         axios
           .post(
-            "http://localhost:5000/api/auth/jwt-access-token",
+            "https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/auth/jwt-access-token",
             { email: currentUser.email },
             {
               withCredentials: true,
@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
         // remove token from cookie
         axios
           .post(
-            "http://localhost:5000/api/auth/jwt-clear-token",
+            "https://find-job-server-lxnesn19j-akibul-islams-projects.vercel.app/api/auth/jwt-clear-token",
             {},
             {
               withCredentials: true,
