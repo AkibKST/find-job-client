@@ -47,10 +47,12 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         // when user sign in
         // get token from server and set it to cookie
+        // const email = { email: currentUser.email };
+
         axios
           .post(
             "http://localhost:5000/api/auth/jwt-access-token",
-            currentUser.email,
+            { email: currentUser.email },
             {
               withCredentials: true,
             }
